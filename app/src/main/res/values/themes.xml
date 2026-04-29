@@ -1,0 +1,4 @@
+<resources>
+    <style name="Theme.MindAlive" parent="Theme.AppCompat.NoActionBar">
+    </style>
+</resources>

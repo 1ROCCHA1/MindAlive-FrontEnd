@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="#1A1A2E">
+
+    <TextView
+        android:text="Juegos"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:useDefaultMargins="true">
+
+        <LinearLayout
+            android:id="@+id/botonSimon"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/fondo_boton_juegos"
+            android:layout_margin="8dp">
+            <TextView
+                android:text="Simón"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/botonMemoria"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/fondo_boton_juegos"
+            android:layout_margin="8dp">
+            <TextView
+                android:text="Memoria"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/botonNumeros"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/fondo_boton_juegos"
+            android:layout_margin="8dp">
+            <TextView
+                android:text="Números"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/botonRaro"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/fondo_boton_juegos"
+            android:layout_margin="8dp">
+            <TextView
+                android:text="El Raro"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+    </GridLayout>
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center"
+    android:background="@drawable/fondo_login">
+
+    <TextView
+        android:text="MindAlive"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/campoEmail"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Correo electrónico"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/fondo_campo"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/campoPassword"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:background="@drawable/fondo_campo"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/botonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="ENTRAR"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/fondo_boton_principal"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textoRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿No tienes cuenta? Regístrate"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="8dp"/>
+
+</LinearLayout>

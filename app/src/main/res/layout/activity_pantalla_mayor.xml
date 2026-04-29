@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#1A1A2E">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MindAlive"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="64dp"/>
+
+    <LinearLayout
+        android:id="@+id/botonHablar"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/fondo_boton_hablar"
+        android:layout_marginBottom="24dp">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_microfono"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HABLAR"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/botonJuegos"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/fondo_boton_juegos">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_juegos"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JUGAR"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textoAyuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Cómo funciona?"
+        android:textColor="#AAAAAA"
+        android:textSize="14sp"
+        android:layout_marginTop="32dp"/>
+
+</LinearLayout>
