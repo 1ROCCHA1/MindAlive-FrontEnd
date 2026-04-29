@@ -3,6 +3,7 @@ package com.mindalive.app
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 
 class PantallaJuegosActivity : AppCompatActivity() {
 
@@ -15,7 +16,9 @@ class PantallaJuegosActivity : AppCompatActivity() {
                 val botonNumeros = findViewById<LinearLayout>(R.id.botonNumeros)
                 val botonRaro = findViewById<LinearLayout>(R.id.botonRaro)
 
-                botonSimon.setOnClickListener { }
+            botonSimon.setOnClickListener {
+                startActivity(Intent(this, SimonActivity::class.java))
+            }
         botonMemoria.setOnClickListener { }
         botonNumeros.setOnClickListener { }
         botonRaro.setOnClickListener { }

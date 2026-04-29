@@ -29,6 +29,7 @@
         android:layout_height="56dp"
         android:text="Configurar dispositivo del mayor"
         android:textSize="16sp"
+        android:textColor="#FFFFFF"
         android:background="@drawable/fondo_boton_principal"/>
 
 </LinearLayout>

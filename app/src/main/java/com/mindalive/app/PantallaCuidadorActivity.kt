@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class PantallaCuidadorActivity : AppCompatActivity() {
@@ -17,13 +18,20 @@ class PantallaCuidadorActivity : AppCompatActivity() {
         val nombreMayor = prefs.getString("nombreMayor", "el mayor")
 
         val textoEstado = findViewById<TextView>(R.id.textoEstadoMayor)
-                textoEstado.text = "Estado de $nombreMayor"
+        textoEstado.text = "Estado de $nombreMayor"
 
         val botonConfigurar = findViewById<Button>(R.id.botonConfigurarDispositivo)
-                botonConfigurar.setOnClickListener {
-            prefs.edit().putString("rol", "MAYOR").apply()
-            startActivity(Intent(this, PantallaMayorActivity::class.java))
-            finish()
+        botonConfigurar.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Configurar dispositivo")
+                .setMessage("Al continuar, este dispositivo quedará asignado a $nombreMayor. La app arrancará directamente en su pantalla cada vez que se abra. Podrás deshacerlo volviendo a iniciar sesión como cuidador, para ello borra los datos de la app.")
+                .setPositiveButton("Confirmar") { _, _ ->
+                    prefs.edit().putString("rol", "MAYOR").apply()
+                    startActivity(Intent(this, PantallaMayorActivity::class.java))
+                    finish()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
         }
     }
 }

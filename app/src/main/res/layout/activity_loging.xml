@@ -45,6 +45,7 @@
         android:text="ENTRAR"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
         android:background="@drawable/fondo_boton_principal"
         android:layout_marginBottom="16dp"/>
 

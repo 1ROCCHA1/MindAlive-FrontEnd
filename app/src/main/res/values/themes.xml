@@ -1,4 +1,6 @@
 <resources>
-    <style name="Theme.MindAlive" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.MindAlive" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:editTextColor">#000000</item>
+        <item name="android:textColorHint">#888888</item>
     </style>
 </resources>
