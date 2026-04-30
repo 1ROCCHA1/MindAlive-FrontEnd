@@ -27,7 +27,9 @@
         <activity android:name=".PantallaCuidadorActivity" android:exported="false"/>
         <activity android:name=".PantallaJuegosActivity" android:exported="false"/>
         <activity android:name=".SimonActivity" android:exported="false"/>
-
+        <activity android:name=".MemoryActivity" android:exported="false"/>
+        <activity android:name=".OperacionesActivity" android:exported="false"/>
+        <activity android:name=".RaroActivity" android:exported="false"/>
     </application>
 
 </manifest>

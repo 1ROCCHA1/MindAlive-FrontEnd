@@ -12,15 +12,21 @@ class PantallaJuegosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pantalla_juegos)
 
         val botonSimon = findViewById<LinearLayout>(R.id.botonSimon)
-                val botonMemoria = findViewById<LinearLayout>(R.id.botonMemoria)
-                val botonNumeros = findViewById<LinearLayout>(R.id.botonNumeros)
-                val botonRaro = findViewById<LinearLayout>(R.id.botonRaro)
+        val botonMemoria = findViewById<LinearLayout>(R.id.botonMemoria)
+        val botonNumeros = findViewById<LinearLayout>(R.id.botonNumeros)
+        val botonRaro = findViewById<LinearLayout>(R.id.botonRaro)
 
-            botonSimon.setOnClickListener {
-                startActivity(Intent(this, SimonActivity::class.java))
-            }
-        botonMemoria.setOnClickListener { }
-        botonNumeros.setOnClickListener { }
-        botonRaro.setOnClickListener { }
+        botonSimon.setOnClickListener {
+            startActivity(Intent(this, SimonActivity::class.java))
+        }
+        botonMemoria.setOnClickListener {
+            startActivity(Intent(this, MemoryActivity::class.java))
+        }
+        botonNumeros.setOnClickListener {
+            startActivity(Intent(this, OperacionesActivity::class.java))
+        }
+        botonRaro.setOnClickListener {
+            startActivity(Intent(this, RaroActivity::class.java))
+        }
     }
 }
