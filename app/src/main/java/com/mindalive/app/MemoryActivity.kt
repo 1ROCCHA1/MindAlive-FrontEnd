@@ -14,6 +14,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
+import android.widget.Button
 
 class MemoryActivity : AppCompatActivity() {
 
@@ -46,6 +47,10 @@ class MemoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_memory)
+        findViewById<Button>(R.id.botonVolver).setOnClickListener {
+            finish()
+        }
+
 
         textoInstruccion = findViewById(R.id.textoInstruccion)
         textoNivel = findViewById(R.id.textoNivel)

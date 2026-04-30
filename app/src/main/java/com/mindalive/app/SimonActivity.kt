@@ -18,6 +18,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 import android.view.View
+import android.widget.Button
 class SimonActivity : AppCompatActivity() {
 
     private val cliente = OkHttpClient()
@@ -50,6 +51,9 @@ class SimonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simon)
+        findViewById<Button>(R.id.botonVolver).setOnClickListener {
+            finish()
+        }
 
         textoInstruccion = findViewById(R.id.textoInstruccion)
         textoNivel = findViewById(R.id.textoNivel)

@@ -25,11 +25,16 @@
         <activity android:name=".RegistroActivity" android:exported="false"/>
         <activity android:name=".PantallaMayorActivity" android:exported="false"/>
         <activity android:name=".PantallaCuidadorActivity" android:exported="false"/>
-        <activity android:name=".PantallaJuegosActivity" android:exported="false"/>
-        <activity android:name=".SimonActivity" android:exported="false"/>
-        <activity android:name=".MemoryActivity" android:exported="false"/>
-        <activity android:name=".OperacionesActivity" android:exported="false"/>
-        <activity android:name=".RaroActivity" android:exported="false"/>
+        <activity android:name=".PantallaJuegosActivity" android:exported="false"
+            android:parentActivityName=".PantallaMayorActivity"/>
+        <activity android:name=".SimonActivity" android:exported="false"
+            android:parentActivityName=".PantallaMayorActivity"/>
+        <activity android:name=".MemoryActivity" android:exported="false"
+            android:parentActivityName=".PantallaMayorActivity"/>
+        <activity android:name=".OperacionesActivity" android:exported="false"
+            android:parentActivityName=".PantallaMayorActivity"/>
+        <activity android:name=".RaroActivity" android:exported="false"
+            android:parentActivityName=".PantallaMayorActivity"/>
     </application>
 
 </manifest>

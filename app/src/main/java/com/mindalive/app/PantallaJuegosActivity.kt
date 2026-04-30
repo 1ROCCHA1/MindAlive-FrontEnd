@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
+import android.widget.Button
 
 class PantallaJuegosActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_juegos)
+        findViewById<Button>(R.id.botonVolver).setOnClickListener {
+            finish()
+        }
+
 
         val botonSimon = findViewById<LinearLayout>(R.id.botonSimon)
         val botonMemoria = findViewById<LinearLayout>(R.id.botonMemoria)

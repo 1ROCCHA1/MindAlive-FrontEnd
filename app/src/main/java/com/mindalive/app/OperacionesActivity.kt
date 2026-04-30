@@ -13,6 +13,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
+import android.widget.Button
 
 class OperacionesActivity : AppCompatActivity() {
 
@@ -39,6 +40,9 @@ class OperacionesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operaciones)
+        findViewById<Button>(R.id.botonVolver).setOnClickListener {
+            finish()
+        }
 
         textoNivel = findViewById(R.id.textoNivel)
         textoOperacion = findViewById(R.id.textoOperacion)

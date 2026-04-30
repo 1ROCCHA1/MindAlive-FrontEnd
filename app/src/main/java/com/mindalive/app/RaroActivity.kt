@@ -14,6 +14,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
+import android.widget.Button
 
 class RaroActivity : AppCompatActivity() {
 
@@ -38,6 +39,9 @@ class RaroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_raro)
+        findViewById<Button>(R.id.botonVolver).setOnClickListener {
+            finish()
+        }
 
         textoNivel = findViewById(R.id.textoNivel)
         textoPista = findViewById(R.id.textoPista)
@@ -95,13 +99,17 @@ class RaroActivity : AppCompatActivity() {
     private fun construirElementos(elementos: List<String>) {
         contenedorElementos.removeAllViews()
 
+        val margen = (resources.displayMetrics.density * 24).toInt()
+        val anchoPantalla = resources.displayMetrics.widthPixels
+        val tamanoBoton = (anchoPantalla / 2) - (margen * 3)
+
         val fila1 = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
-            ).apply { setMargins(0, 0, 0, 16) }
+            ).apply { setMargins(margen, margen, margen, margen / 2) }
         }
 
         val fila2 = LinearLayout(this).apply {
@@ -110,7 +118,7 @@ class RaroActivity : AppCompatActivity() {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
-            )
+            ).apply { setMargins(margen, margen / 2, margen, margen) }
         }
 
         elementos.forEachIndexed { indice, elemento ->
@@ -118,13 +126,13 @@ class RaroActivity : AppCompatActivity() {
                 radius = 20f
                 cardElevation = 6f
                 setCardBackgroundColor(0xFF0F3460.toInt())
-                layoutParams = LinearLayout.LayoutParams(140, 140).apply {
-                    setMargins(12, 12, 12, 12)
+                layoutParams = LinearLayout.LayoutParams(tamanoBoton, tamanoBoton).apply {
+                    setMargins(margen / 2, 0, margen / 2, 0)
                 }
 
                 val texto = TextView(this@RaroActivity).apply {
                     text = elemento
-                    textSize = if (elemento.length > 2) 18f else 32f
+                    textSize = if (elemento.length > 3) 35f else 65f
                     setTextColor(0xFFFFFFFF.toInt())
                     gravity = Gravity.CENTER
                     layoutParams = LinearLayout.LayoutParams(
