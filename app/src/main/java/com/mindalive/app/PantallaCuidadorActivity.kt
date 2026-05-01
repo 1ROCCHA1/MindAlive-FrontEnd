@@ -28,7 +28,7 @@ class PantallaCuidadorActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.botonCentroControl).setOnClickListener {
-            // TODO: pantalla centro de control
+            startActivity(Intent(this, CentroControlActivity::class.java))
         }
 
         findViewById<Button>(R.id.botonConfigurarDispositivo).setOnClickListener {

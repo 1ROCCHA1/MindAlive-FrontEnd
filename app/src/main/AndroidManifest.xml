@@ -48,6 +48,8 @@
             android:parentActivityName=".PantallaCuidadorActivity"/>
         <activity android:name=".PerfilMayorActivity" android:exported="false"
             android:parentActivityName=".PantallaCuidadorActivity"/>
+        <activity android:name=".CentroControlActivity" android:exported="false"
+            android:parentActivityName=".PantallaCuidadorActivity"/>
 
     </application>
 

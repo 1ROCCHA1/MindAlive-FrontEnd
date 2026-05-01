@@ -12,6 +12,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
+import java.time.LocalDateTime
 
 class GestionAlarmasActivity : AppCompatActivity() {
 
@@ -196,6 +197,34 @@ class GestionAlarmasActivity : AppCompatActivity() {
         }
     }
 
+    private fun validarCampos(titulo: String, fecha: String, hora: String): Boolean {
+        if (titulo.isEmpty()) {
+            Toast.makeText(this, "El título no puede estar vacío", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        val regexFecha = Regex("^\\d{4}-\\d{2}-\\d{2}$")
+        if (!regexFecha.matches(fecha)) {
+            Toast.makeText(this, "Fecha incorrecta. Usa el formato AAAA-MM-DD (ej: 2026-05-15)", Toast.LENGTH_LONG).show()
+            return false
+        }
+        val regexHora = Regex("^\\d{2}:\\d{2}$")
+        if (!regexHora.matches(hora)) {
+            Toast.makeText(this, "Hora incorrecta. Usa el formato HH:MM (ej: 08:30)", Toast.LENGTH_LONG).show()
+            return false
+        }
+        try {
+            val fechaHoraCompleta = LocalDateTime.parse("${fecha}T${hora}:00")
+            if (fechaHoraCompleta.isBefore(LocalDateTime.now())) {
+                Toast.makeText(this, "La fecha y hora deben ser futuras", Toast.LENGTH_LONG).show()
+                return false
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "Fecha u hora no válidas", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
+    }
+
     private fun mostrarDialogoNuevaAlarma(tipo: String) {
         val vista = layoutInflater.inflate(R.layout.dialog_alarma, null)
         val campoTitulo = vista.findViewById<EditText>(R.id.campoTitulo)
@@ -218,10 +247,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
                 val hora = campoHora.text.toString().trim()
                 val repeticion = opcionesBackend[spinnerRepeticion.selectedItemPosition]
 
-                if (titulo.isEmpty() || fecha.isEmpty() || hora.isEmpty()) {
-                    Toast.makeText(this, "Rellena título, fecha y hora", Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
+                if (!validarCampos(titulo, fecha, hora)) return@setPositiveButton
 
                 crearAlarma(tipo, titulo, descripcion, "${fecha}T${hora}:00", repeticion)
             }
@@ -262,10 +288,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
                 val hora = campoHora.text.toString().trim()
                 val repeticion = opcionesBackend[spinnerRepeticion.selectedItemPosition]
 
-                if (titulo.isEmpty() || fecha.isEmpty() || hora.isEmpty()) {
-                    Toast.makeText(this, "Rellena título, fecha y hora", Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
+                if (!validarCampos(titulo, fecha, hora)) return@setPositiveButton
 
                 actualizarAlarma(alarma.getLong("id"), alarma.getString("tipo"),
                     titulo, descripcion, "${fecha}T${hora}:00", repeticion)
