@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/campoTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Título (ej: Pastilla tensión)"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/campoDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Descripción (opcional)"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/campoFecha"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Fecha (2026-04-30)"
+        android:inputType="date"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/campoHora"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Hora (08:00)"
+        android:inputType="time"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerRepeticion"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+
+</LinearLayout>

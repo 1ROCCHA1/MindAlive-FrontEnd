@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E">
+
+    <Button
+        android:id="@+id/botonVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="12dp"
+        android:text="← Volver"
+        android:textSize="13sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/fondo_boton_secundario"
+        android:paddingHorizontal="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/botonVolver">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perfil del mayor"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- CAPA PERMANENTE -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Información permanente"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#0F3460"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripción general"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/campoDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="3"
+                android:gravity="top"
+                android:hint="Describe cómo es el mayor, su historia, sus costumbres..."
+                android:background="@drawable/fondo_campo"
+                android:padding="12dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carácter"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/campoCaracter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ej: Alegre pero se irrita si se siente tratado como inútil"
+                android:background="@drawable/fondo_campo"
+                android:padding="12dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Familia"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/campoFamilia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ej: Tiene dos hijos, tres nietos"
+                android:background="@drawable/fondo_campo"
+                android:padding="12dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Limitaciones físicas"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/campoLimitaciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ej: Artrosis en las manos, problemas de visión"
+                android:background="@drawable/fondo_campo"
+                android:padding="12dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temas que le gustan (separados por comas)"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/campoTemasGustan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ej: fútbol, jardín, cocina"
+                android:background="@drawable/fondo_campo"
+                android:padding="12dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temas a evitar (separados por comas)"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/campoTemasTabu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ej: muerte, residencias"
+                android:background="@drawable/fondo_campo"
+                android:padding="12dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Problemas de audición"
+                    android:textSize="15sp"
+                    android:textColor="#FFFFFF"/>
+
+                <Switch
+                    android:id="@+id/switchAuditivos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Se irrita si se le trata como incapaz"
+                    android:textSize="15sp"
+                    android:textColor="#FFFFFF"/>
+
+                <Switch
+                    android:id="@+id/switchIrritacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/botonGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Guardar perfil"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/fondo_boton_principal"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- CAPA RASGOS ESTABLES -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rasgos aprendidos por Mindi"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#0F3460"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/textoRasgos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aún no hay rasgos aprendidos"
+                android:textSize="15sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- CAPA ESTADO RECIENTE -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado reciente"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#0F3460"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/textoEstadoReciente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aún no hay conversaciones registradas"
+                android:textSize="15sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginBottom="32dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
