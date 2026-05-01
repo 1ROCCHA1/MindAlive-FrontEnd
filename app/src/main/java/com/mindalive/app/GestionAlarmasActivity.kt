@@ -21,6 +21,9 @@ class GestionAlarmasActivity : AppCompatActivity() {
     private lateinit var textoVacio: TextView
     private var mayorId = -1L
 
+    private val opcionesVisibles = arrayOf("Una sola vez", "Todos los días", "Cada semana")
+    private val opcionesBackend = arrayOf("NINGUNA", "DIARIA", "SEMANAL")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gestion_alarmas)
@@ -59,7 +62,6 @@ class GestionAlarmasActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call, response: Response) {
                 val cuerpo = response.body?.string() ?: return
-                android.util.Log.d("ALARMAS", "Respuesta: $cuerpo")
                 val alarmas = JSONArray(cuerpo)
 
                 runOnUiThread {
@@ -85,7 +87,12 @@ class GestionAlarmasActivity : AppCompatActivity() {
         val descripcion = if (alarma.has("descripcion") && !alarma.isNull("descripcion"))
             alarma.getString("descripcion") else ""
         val fechaHora = alarma.getString("fechaHora").replace("T", " ").substring(0, 16)
-        val repeticion = alarma.getString("repeticion")
+        val repeticionBackend = alarma.getString("repeticion")
+        val repeticionVisible = when (repeticionBackend) {
+            "DIARIA" -> "Todos los días"
+            "SEMANAL" -> "Cada semana"
+            else -> "Una sola vez"
+        }
         val confirmada = alarma.getBoolean("confirmada")
 
         val emoji = if (tipo == "MEDICAMENTO") "💊" else "📅"
@@ -143,7 +150,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
             }
 
             contenido.addView(TextView(this@GestionAlarmasActivity).apply {
-                text = "🕐 $fechaHora  |  🔁 $repeticion"
+                text = "🕐 $fechaHora  |  🔁 $repeticionVisible"
                 textSize = 14f
                 setTextColor(0xFFAAAAAA.toInt())
                 layoutParams = LinearLayout.LayoutParams(
@@ -197,8 +204,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
         val campoHora = vista.findViewById<EditText>(R.id.campoHora)
         val spinnerRepeticion = vista.findViewById<Spinner>(R.id.spinnerRepeticion)
 
-        val opciones = arrayOf("NINGUNA", "DIARIA", "SEMANAL")
-        spinnerRepeticion.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opciones)
+        spinnerRepeticion.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opcionesVisibles)
 
         val emoji = if (tipo == "MEDICAMENTO") "💊" else "📅"
 
@@ -210,7 +216,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
                 val descripcion = campoDescripcion.text.toString().trim()
                 val fecha = campoFecha.text.toString().trim()
                 val hora = campoHora.text.toString().trim()
-                val repeticion = spinnerRepeticion.selectedItem.toString()
+                val repeticion = opcionesBackend[spinnerRepeticion.selectedItemPosition]
 
                 if (titulo.isEmpty() || fecha.isEmpty() || hora.isEmpty()) {
                     Toast.makeText(this, "Rellena título, fecha y hora", Toast.LENGTH_SHORT).show()
@@ -231,8 +237,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
         val campoHora = vista.findViewById<EditText>(R.id.campoHora)
         val spinnerRepeticion = vista.findViewById<Spinner>(R.id.spinnerRepeticion)
 
-        val opciones = arrayOf("NINGUNA", "DIARIA", "SEMANAL")
-        spinnerRepeticion.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opciones)
+        spinnerRepeticion.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, opcionesVisibles)
 
         val fechaHoraCompleta = alarma.getString("fechaHora")
         val partes = fechaHoraCompleta.split("T")
@@ -244,7 +249,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
         campoFecha.setText(partes[0])
         campoHora.setText(partes[1].substring(0, 5))
 
-        val posRepeticion = opciones.indexOf(alarma.getString("repeticion"))
+        val posRepeticion = opcionesBackend.indexOf(alarma.getString("repeticion"))
         if (posRepeticion >= 0) spinnerRepeticion.setSelection(posRepeticion)
 
         AlertDialog.Builder(this)
@@ -255,7 +260,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
                 val descripcion = campoDescripcion.text.toString().trim()
                 val fecha = campoFecha.text.toString().trim()
                 val hora = campoHora.text.toString().trim()
-                val repeticion = spinnerRepeticion.selectedItem.toString()
+                val repeticion = opcionesBackend[spinnerRepeticion.selectedItemPosition]
 
                 if (titulo.isEmpty() || fecha.isEmpty() || hora.isEmpty()) {
                     Toast.makeText(this, "Rellena título, fecha y hora", Toast.LENGTH_SHORT).show()

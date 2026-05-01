@@ -43,5 +43,17 @@ class PantallaCuidadorActivity : AppCompatActivity() {
                 .setNegativeButton("Cancelar", null)
                 .show()
         }
+        findViewById<Button>(R.id.botonCerrarSesion).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Cerrar sesión")
+                .setMessage("¿Seguro que quieres cerrar sesión?")
+                .setPositiveButton("Sí") { _, _ ->
+                    prefs.edit().clear().apply()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
     }
 }

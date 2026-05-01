@@ -11,6 +11,7 @@
         android:layout_height="56dp"
         android:hint="Título (ej: Pastilla tensión)"
         android:textSize="16sp"
+        android:inputType="text"
         android:layout_marginBottom="12dp"/>
 
     <EditText
@@ -19,25 +20,50 @@
         android:layout_height="56dp"
         android:hint="Descripción (opcional)"
         android:textSize="16sp"
+        android:inputType="text"
         android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha: formato AAAA-MM-DD (ej: 2026-05-15)"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:layout_marginBottom="4dp"/>
 
     <EditText
         android:id="@+id/campoFecha"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:hint="Fecha (2026-04-30)"
-        android:inputType="date"
+        android:hint="2026-05-15"
+        android:inputType="number"
         android:textSize="16sp"
         android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora: formato HH:MM (ej: 08:30)"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:layout_marginBottom="4dp"/>
 
     <EditText
         android:id="@+id/campoHora"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:hint="Hora (08:00)"
-        android:inputType="time"
+        android:hint="08:30"
+        android:inputType="number"
         android:textSize="16sp"
         android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Con qué frecuencia?"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="4dp"/>
 
     <Spinner
         android:id="@+id/spinnerRepeticion"
