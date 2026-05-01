@@ -238,7 +238,7 @@ class GestionAlarmasActivity : AppCompatActivity() {
         val emoji = if (tipo == "MEDICAMENTO") "💊" else "📅"
 
         AlertDialog.Builder(this)
-            .setTitle("$emoji Nueva ${tipo.lowercase()}")
+            .setTitle("$emoji Nuevo ${tipo.lowercase()}")
             .setView(vista)
             .setPositiveButton("Guardar") { _, _ ->
                 val titulo = campoTitulo.text.toString().trim()
