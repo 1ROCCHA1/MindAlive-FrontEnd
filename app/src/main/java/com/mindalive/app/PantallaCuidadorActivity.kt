@@ -17,11 +17,21 @@ class PantallaCuidadorActivity : AppCompatActivity() {
         val prefs = getSharedPreferences("mindalive_sesion", Context.MODE_PRIVATE)
         val nombreMayor = prefs.getString("nombreMayor", "el mayor")
 
-        val textoEstado = findViewById<TextView>(R.id.textoEstadoMayor)
-        textoEstado.text = "Estado de $nombreMayor"
+        findViewById<TextView>(R.id.textoEstadoMayor).text = "Estado de $nombreMayor"
 
-        val botonConfigurar = findViewById<Button>(R.id.botonConfigurarDispositivo)
-        botonConfigurar.setOnClickListener {
+        findViewById<Button>(R.id.botonAlarmas).setOnClickListener {
+            startActivity(Intent(this, GestionAlarmasActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.botonPerfil).setOnClickListener {
+            startActivity(Intent(this, PerfilMayorActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.botonCentroControl).setOnClickListener {
+            // TODO: pantalla centro de control
+        }
+
+        findViewById<Button>(R.id.botonConfigurarDispositivo).setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Configurar dispositivo")
                 .setMessage("Al continuar, este dispositivo quedará asignado a $nombreMayor. La app arrancará directamente en su pantalla cada vez que se abra. Podrás deshacerlo volviendo a iniciar sesión como cuidador, para ello borra los datos de la app.")

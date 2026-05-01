@@ -7,13 +7,13 @@
     android:background="#1A1A2E">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Panel del Cuidador"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="32dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/textoEstadoMayor"
@@ -21,15 +21,45 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textColor="#CCCCCC"
-        android:layout_marginBottom="48dp"/>
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/botonAlarmas"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="⏰  Alarmas y recordatorios"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/fondo_boton_principal"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/botonPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="👤  Perfil del mayor"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/fondo_boton_principal"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/botonCentroControl"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="📊  Centro de control"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/fondo_boton_principal"
+        android:layout_marginBottom="32dp"/>
 
     <Button
         android:id="@+id/botonConfigurarDispositivo"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Configurar dispositivo del mayor"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/fondo_boton_principal"/>
+        android:text="🔧  Configurar dispositivo del mayor"
+        android:textSize="14sp"
+        android:textColor="#0B0B0B"
+        android:background="@drawable/fondo_boton_secundario"/>
 
 </LinearLayout>
