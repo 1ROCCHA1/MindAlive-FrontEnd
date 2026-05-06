@@ -15,10 +15,16 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
 import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
-    private val cliente = OkHttpClient()
+    private val cliente = OkHttpClient.Builder()
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .build()
+
     private val urlBase = "http://192.168.1.33:8080"
     private lateinit var tts: TextToSpeech
     private val CODIGO_VOZ = 100
@@ -40,7 +46,7 @@ class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         findViewById<TextView>(R.id.textoAyuda).setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("¿Cómo funciona?")
-                .setMessage("Pulsa HABLAR para hablar con Mindi que te escucha y te responde por voz.\n\nPulsa JUGAR para hacer ejercicios de memoria y concentración.\n\nSi tienes medicamentos programados, Mindi te avisará a la hora.")
+                .setMessage("Pulsa HABLAR para hablar con Mindi. Ella te escucha y te responde por voz.\n\nPulsa JUGAR para hacer ejercicios de memoria y concentración.\n\nSi tienes medicamentos programados, Mindi te avisará a la hora.")
                 .setPositiveButton("Entendido", null)
                 .show()
         }
@@ -98,7 +104,9 @@ class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun hablar(texto: String) {
-        tts.speak(texto, TextToSpeech.QUEUE_FLUSH, null, null)
+        if (::tts.isInitialized) {
+            tts.speak(texto, TextToSpeech.QUEUE_FLUSH, null, null)
+        }
     }
 
     override fun onInit(status: Int) {
