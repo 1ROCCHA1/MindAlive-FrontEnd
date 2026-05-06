@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -17,7 +19,7 @@ import java.util.Locale
 class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private val cliente = OkHttpClient()
-    private val urlBase = "http://10.0.2.2:8080"
+    private val urlBase = "http://192.168.1.33:8080"
     private lateinit var tts: TextToSpeech
     private val CODIGO_VOZ = 100
 
@@ -28,11 +30,19 @@ class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts = TextToSpeech(this, this)
 
         val botonHablar = findViewById<LinearLayout>(R.id.botonHablar)
-                val botonJuegos = findViewById<LinearLayout>(R.id.botonJuegos)
+        val botonJuegos = findViewById<LinearLayout>(R.id.botonJuegos)
 
-                botonHablar.setOnClickListener { escuchar() }
+        botonHablar.setOnClickListener { escuchar() }
         botonJuegos.setOnClickListener {
             startActivity(Intent(this, PantallaJuegosActivity::class.java))
+        }
+
+        findViewById<TextView>(R.id.textoAyuda).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("¿Cómo funciona?")
+                .setMessage("Pulsa HABLAR para hablar con Mindi que te escucha y te responde por voz.\n\nPulsa JUGAR para hacer ejercicios de memoria y concentración.\n\nSi tienes medicamentos programados, Mindi te avisará a la hora.")
+                .setPositiveButton("Entendido", null)
+                .show()
         }
     }
 
@@ -49,7 +59,7 @@ class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODIGO_VOZ && resultCode == RESULT_OK) {
             val texto = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0) ?: return
-                    enviarAlAsistente(texto)
+            enviarAlAsistente(texto)
         }
     }
 
@@ -58,15 +68,15 @@ class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         val mayorId = prefs.getLong("mayorId", -1)
         if (mayorId == -1L) return
 
-                val json = JSONObject()
+        val json = JSONObject()
         json.put("mayorId", mayorId)
         json.put("mensaje", mensaje)
 
         val body = json.toString().toRequestBody("application/json".toMediaType())
         val peticion = Request.Builder()
-                .url("$urlBase/api/asistente/mensaje")
-                .post(body)
-                .build()
+            .url("$urlBase/api/asistente/mensaje")
+            .post(body)
+            .build()
 
         cliente.newCall(peticion).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {

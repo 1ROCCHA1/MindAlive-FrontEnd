@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     private fun cargarYProgramarAlarmas(mayorId: Long) {
         val cliente = okhttp3.OkHttpClient()
         val peticion = okhttp3.Request.Builder()
-            .url("http://10.0.2.2:8080/api/alarmas/mayor/$mayorId")
+            .url("http://192.168.1.33:8080/api/alarmas/mayor/$mayorId")
             .get()
             .build()
 
