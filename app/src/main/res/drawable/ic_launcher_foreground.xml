@@ -4,27 +4,35 @@
     android:viewportWidth="400"
     android:viewportHeight="400">
 
-    <!-- Fondo -->
+    <!-- Fondo circular -->
     <path
         android:fillColor="#1A1A2E"
-        android:pathData="M80,0 L320,0 Q400,0 400,80 L400,320 Q400,400 320,400 L80,400 Q0,400 0,320 L0,80 Q0,0 80,0 Z"/>
+        android:pathData="M200,0 A200,200 0 1,1 199.9,0 Z"/>
 
     <!-- M blanca -->
-    <path
-        android:strokeColor="#FFFFFF"
-        android:strokeWidth="26"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:fillColor="@android:color/transparent"
-        android:pathData="M90,290 L90,100 L200,185 L310,100 L310,290"/>
+    <group
+        android:scaleX="0.72"
+        android:scaleY="0.72"
+        android:translateX="56"
+        android:translateY="56">
 
-    <!-- Pulso azul -->
-    <path
-        android:strokeColor="#4A9EFF"
-        android:strokeWidth="10"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:fillColor="@android:color/transparent"
-        android:pathData="M25,320 L115,320 L135,275 L160,360 L185,230 L208,320 L375,320"/>
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="30"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M90,290 L90,100 L200,185 L310,100 L310,290"/>
+
+        <!-- Pulso azul -->
+        <path
+            android:strokeColor="#4A9EFF"
+            android:strokeWidth="13"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M25,320 L115,320 L135,275 L160,360 L185,230 L208,320 L375,320"/>
+
+    </group>
 
 </vector>
