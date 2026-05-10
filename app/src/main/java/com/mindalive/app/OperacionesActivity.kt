@@ -18,7 +18,7 @@ import android.widget.Button
 class OperacionesActivity : AppCompatActivity() {
 
     private val cliente = OkHttpClient()
-    private val urlBase = "http://192.168.1.33:8080"
+    private val urlBase = "http://10.0.2.2:8080"
     private val handler = Handler(Looper.getMainLooper())
 
     private var nivel = 1

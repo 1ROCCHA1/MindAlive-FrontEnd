@@ -21,11 +21,11 @@ class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private val cliente = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(90, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
 
-    private val urlBase = "http://192.168.1.33:8080"
+    private val urlBase = "http://10.0.2.2:8080"
     private lateinit var tts: TextToSpeech
     private val CODIGO_VOZ = 100
 
@@ -57,6 +57,9 @@ class PantallaMayorActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es-ES")
             putExtra(RecognizerIntent.EXTRA_PROMPT, "Te escucho...")
+            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 3000L)
+            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 3000L)
+            putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 5000L)
         }
         startActivityForResult(intent, CODIGO_VOZ)
     }
